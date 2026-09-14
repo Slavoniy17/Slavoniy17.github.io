@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Смена цвета фона</title>
+    <!-- Подключаем скрипт Telegram Web App -->
+    <script src="https://telegram.org"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            transition: background-color 0.4s ease; /* Плавная смена цвета */
+            background-color: #ffffff;
+        }
+        .btn-container {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-green { background-color: #2ecc71; }
+        .btn-purple { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+
+    <div class="btn-container">
+        <button class="btn-green" onclick="changeColor('#2ecc71')">Зеленый</button>
+        <button class="btn-purple" onclick="changeColor('#9b59b6')">Пурпурный</button>
+    </div>
+
+    <script>
+        // Инициализируем Telegram WebApp
+        const tg = window.Telegram.WebApp;
+        tg.ready(); // Сообщаем Telegram, что приложение готово к отрисовке
+        tg.expand(); // Расширяем приложение на весь экран
+
+        function changeColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
